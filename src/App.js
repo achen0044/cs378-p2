@@ -1,5 +1,6 @@
 import './App.css';
 import MenuItem from './components/MenuItem';
+import storeLogo from "./logo.png"
 
 // import 'bootstrap/dist/css/bootstrap.min.css'; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
 
@@ -80,15 +81,24 @@ const menuItems = [
 
 
 function App() {
-  return (
+    return (
     <div>
-      <h1>Menu</h1>
-      <div className="menu">
-        {/* Display menu items dynamicaly here by iterating over the provided menuItems */}
-        <MenuItem title={menuItems[0].title} /> {/* Example for how to use a component */}
-      </div>
+        <div className="menu">
+            <br /><br />
+            <div><img src={storeLogo} style={{width: "50%", display: "block", margin: "0 auto"}}/></div>
+            <div style={{fontSize: "1.5em", fontFamily: 'Brush Script MT', color: "#e59c71"}}>
+                Delicious, From-Scratch Recipes Close at Hand
+                </div>
+            <div style={{fontSize: "2em", fontFamily: 'Verdana', color: "#828282"}}> The Fresh Choice of UT! </div>
+            <br /><br />
+
+            {menuItems.map((entry) => (
+                <MenuItem object={entry} />
+            ))}
+        </div>
+        
     </div>
-  );
+);
 }
 
 export default App;
